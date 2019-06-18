@@ -4,3 +4,7 @@ h2 {
   margin: 14px auto -20px auto;
   text-align: center;
 }
+
+h2 > img {
+  margin-right: 4px;
+}
