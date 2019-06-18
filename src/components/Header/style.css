@@ -1,0 +1,6 @@
+h2 {
+  color: #333;
+  font-size: calc(30px + 1.5vw);
+  margin: 14px auto -20px auto;
+  text-align: center;
+}
