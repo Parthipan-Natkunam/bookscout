@@ -1,9 +1,11 @@
 import React from "react";
+import createSagaMiddleware from "redux-saga";
 
 import { Provider } from "react-redux";
-import { createStore } from "redux";
+import { createStore, compose, applyMiddleware } from "redux";
 
 import rootReducer from "./reducers/rootReducer";
+import rootSaga from "./sagas";
 
 import "./App.css";
 
@@ -11,19 +13,19 @@ import SearchWidget from "./containers/SearchWidget";
 import Header from "./components/Header/Header";
 import Results from "./containers/Results";
 
+const sagaMiddleWare = createSagaMiddleware();
+
 let store = createStore(
   rootReducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  compose(
+    applyMiddleware(sagaMiddleWare),
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  )
 );
 
+sagaMiddleWare.run(rootSaga);
+
 class App extends React.Component {
-  // componentDidUpdate() {
-  //   if (!!this.state.searchTerm) {
-  //     fetch(
-  //       `https://www.googleapis.com/books/v1/volumes?q=${this.state.searchTerm}`
-  //     ).then(resp => console.log(resp));
-  //   }
-  // }
   render() {
     return (
       <Provider store={store}>

@@ -1,5 +1,7 @@
 import React from "react";
 
+import { connect } from "react-redux";
+
 import ResultCard from "../components/Results/ResultCard";
 
 import "./style.css";
@@ -9,15 +11,19 @@ class Results extends React.Component {
     return (
       <div className={"results__container"}>
         <div className={"results__inner-wrapper"}>
-          <ResultCard />
-          <ResultCard />
-          <ResultCard />
-          <ResultCard />
-          <ResultCard />
+          {this.props.bookData.map(book => {
+            return <ResultCard key={book.id} uid={book.id} info={book.data} />;
+          })}
         </div>
       </div>
     );
   }
 }
 
-export default Results;
+let mapStateToProps = state => {
+  return {
+    bookData: state.books
+  };
+};
+
+export default connect(mapStateToProps)(Results);
