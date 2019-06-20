@@ -10,8 +10,10 @@ class searchWidgetComponent extends React.Component {
   keyupHandler = ev => {
     if (ev.key === "Enter") {
       let searchphrase = ev.target.value;
-      this.props.setSearchTerm(searchphrase);
-      this.props.fetchBooks(encodeURIComponent(searchphrase));
+      if (!!searchphrase) {
+        this.props.setSearchTerm(searchphrase);
+        this.props.fetchBooks(encodeURIComponent(searchphrase));
+      }
     }
     return;
   };
