@@ -1,0 +1,17 @@
+.results__container {
+  margin: 1rem;
+  padding: 0.5rem;
+  border: 1px dashed #5d5d5d;
+}
+
+.results__inner-wrapper {
+  width: calc(100% - 64px);
+  margin: 0 auto;
+  text-align: center;
+}
+
+@media screen and (min-width: 717px) {
+  .results__inner-wrapper {
+    text-align: left;
+  }
+}

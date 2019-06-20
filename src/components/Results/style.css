@@ -1,0 +1,31 @@
+.result__card {
+  color: #5d5d5d;
+  padding: 1rem;
+  background: #fff;
+  flex: 1 0 20%;
+  height: 380px;
+  margin: 1rem;
+  display: inline-block;
+  width: calc(100% - 900px);
+  min-width: 250px;
+  max-width: 380px;
+}
+
+.result__card > img {
+  display: block;
+  width: 150px;
+  margin: 0 auto;
+}
+
+.result__card > h3 {
+  text-align: center;
+}
+
+.result__description {
+  text-align: left;
+  font-size: 14px;
+  font-family: "Montserrat", sans-serif;
+  line-height: 1rem;
+  letter-spacing: 1.2px;
+  word-spacing: 1.5px;
+}

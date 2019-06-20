@@ -9,6 +9,7 @@ import "./App.css";
 
 import SearchWidget from "./containers/SearchWidget";
 import Header from "./components/Header/Header";
+import Results from "./containers/Results";
 
 let store = createStore(
   rootReducer,
@@ -28,6 +29,7 @@ class App extends React.Component {
       <Provider store={store}>
         <Header />
         <SearchWidget />
+        <Results />
       </Provider>
     );
   }
