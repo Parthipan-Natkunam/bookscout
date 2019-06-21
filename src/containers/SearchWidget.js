@@ -6,25 +6,33 @@ import { setSearchTerm, searchBook } from "../actions/searchActions";
 
 import SearchField from "../components/search/SearchField";
 
-class searchWidgetComponent extends React.Component {
-  keyupHandler = ev => {
-    if (ev.key === "Enter") {
-      let searchphrase = ev.target.value;
-      if (!!searchphrase) {
-        this.props.setSearchTerm(searchphrase);
-        this.props.fetchBooks(encodeURIComponent(searchphrase));
-      }
+class searchWidgetComponent extends React.PureComponent {
+  initSearch = searchPhrase => {
+    if (!!searchPhrase && this.props.previousSearch !== searchPhrase) {
+      this.props.setSearchTerm(searchPhrase);
+      this.props.fetchBooks(encodeURIComponent(searchPhrase));
     }
     return;
+  };
+  submitHandler = searchPhrase => ev => {
+    ev.preventDefault();
+    console.log(ev);
+    this.initSearch(searchPhrase.current.value);
   };
   render() {
     return (
       <div className={"search-container"}>
-        <SearchField inputHandler={this.keyupHandler} />
+        <SearchField submitHandler={this.submitHandler} />
       </div>
     );
   }
 }
+
+let mapStateToProps = state => {
+  return {
+    previousSearch: state.search[0]
+  };
+};
 
 let mapDispatchToProps = dispatch => {
   return {
@@ -38,7 +46,7 @@ let mapDispatchToProps = dispatch => {
 };
 
 const searchWidget = connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(searchWidgetComponent);
 

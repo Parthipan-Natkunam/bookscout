@@ -16,12 +16,12 @@
   flex: 1;
   height: 1.8rem;
   background: #333;
-  padding: 0.25rem;
+  padding: 1.04rem;
   color: #fff;
   border-radius: 9px 0 0 9px;
   transform: rotate(180deg);
-  font-size: 30px;
-  line-height: 30px;
+  font-size: 3rem;
+  line-height: 0.1rem;
   margin-left: -5px;
   user-select: none;
   cursor: pointer;

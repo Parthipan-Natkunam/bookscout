@@ -1,18 +1,19 @@
-import React from "react";
+import React, { useRef } from "react";
 import "./style.css";
 
 const SearchField = props => {
+  const searchInput = useRef(null);
   return (
-    <div className={"searchfield"}>
+    <form className={"searchfield"} onSubmit={props.submitHandler(searchInput)}>
       <input
         type="text"
         placeholder="Enter Search Term Here..."
         defaultValue=""
+        ref={searchInput}
         className={"searchfield__input"}
-        onKeyUp={props.inputHandler}
       />
-      <div className={"searchfield__icon"}>&#9740;</div>
-    </div>
+      <input className={"searchfield__icon"} type="submit" value="&#9740;" />
+    </form>
   );
 };
 
