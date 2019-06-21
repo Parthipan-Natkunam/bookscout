@@ -10,8 +10,10 @@ class App extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <Header />
-        <SearchWidget />
+        <div className={"header-wrapper"}>
+          <Header />
+          <SearchWidget />
+        </div>
         <Results />
       </React.Fragment>
     );

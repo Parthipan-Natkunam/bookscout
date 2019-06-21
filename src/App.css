@@ -1,4 +1,8 @@
 /*Search Widget*/
+.header-wrapper {
+  background: #333;
+  padding: 25px 0;
+}
 .search-container {
   padding: 1rem;
   text-align: center;
