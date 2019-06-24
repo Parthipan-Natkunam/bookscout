@@ -26,6 +26,16 @@
   user-select: none;
   cursor: pointer;
   border: 2px solid #fff;
+  transition: background 0.8s;
+}
+.searchfield__icon:hover {
+  background: #faa507 radial-gradient(circle, #faa507 30%, transparent 40%)
+    center/1000%;
+}
+.searchfield__icon:active {
+  background: #fcb430;
+  background-size: 100%;
+  transition: background 0s;
 }
 
 @media screen and (max-width: 300px) {

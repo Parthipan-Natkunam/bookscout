@@ -3,6 +3,7 @@ h2 {
   font-size: calc(30px + 1.5vw);
   margin: 0;
   text-align: center;
+  user-select: none;
 }
 
 h2 > img {
