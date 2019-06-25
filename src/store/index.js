@@ -6,11 +6,16 @@ import rootSaga from "../sagas";
 
 const sagaMiddleWare = createSagaMiddleware();
 
+const reduxExtension =
+  (window.__REDUX_DEVTOOLS_EXTENSION__ &&
+    window.__REDUX_DEVTOOLS_EXTENSION__()) ||
+  compose;
+
 export const store = createStore(
   rootReducer,
   compose(
     applyMiddleware(sagaMiddleWare),
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    reduxExtension
   )
 );
 
