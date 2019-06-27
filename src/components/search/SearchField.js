@@ -1,4 +1,6 @@
 import React, { useRef } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import "./style.css";
 
 const SearchField = props => {
@@ -12,7 +14,9 @@ const SearchField = props => {
         ref={searchInput}
         className={"searchfield__input"}
       />
-      <input className={"searchfield__icon"} type="submit" value="&#9740;" />
+      <button className={"searchfield__icon"} type="submit">
+        <FontAwesomeIcon icon={faSearch} />
+      </button>
     </form>
   );
 };
